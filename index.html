@@ -1,55 +1,105 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Salman Khan</title>
-  <meta name="description" content="Salman Khan — software developer. Projects, skills and contact.">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23334155'/><text x='50' y='66' font-size='48' font-family='sans-serif' fill='white' text-anchor='middle'>SK</text></svg>">
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Salman Khan — Lead Software Engineer</title>
+<meta name="description" content="Salman Khan, Lead Software Engineer (.NET, Clean Architecture, enterprise integrations, AI-assisted engineering). Karachi, Pakistan.">
+<style>
+:root{--bg:#fafbfc;--fg:#1b1f24;--muted:#57606a;--card:#fff;--line:#d8dee4;--accent:#1f4e79;--chip:#eaf1f8}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1318;--fg:#e6edf3;--muted:#9aa7b4;--card:#171c23;--line:#2b333d;--accent:#6aa9e0;--chip:#1c2733}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px 64px}
+header{padding:56px 0 24px}
+h1{font-size:2.2rem;line-height:1.15;margin:0 0 6px}
+.role{font-size:1.15rem;color:var(--accent);font-weight:600;margin:0 0 10px}
+.lead{color:var(--muted);margin:0 0 18px;max-width:62ch}
+.links a{display:inline-block;margin:0 8px 8px 0;padding:8px 14px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg);text-decoration:none;font-weight:600}
+.links a:hover,.links a:focus-visible{border-color:var(--accent);color:var(--accent)}
+h2{font-size:1.25rem;margin:40px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--accent)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.card h3{margin:0 0 4px;font-size:1rem}
+.card p{margin:0;color:var(--muted);font-size:.95rem}
+.tl{border-left:2px solid var(--line);margin-left:6px;padding-left:18px}
+.tl .item{margin-bottom:18px;position:relative}
+.tl .item::before{content:"";position:absolute;left:-25px;top:8px;width:10px;height:10px;border-radius:50%;background:var(--accent)}
+.when{color:var(--muted);font-size:.9rem}
+.chips span{display:inline-block;margin:0 6px 6px 0;padding:3px 10px;border-radius:999px;background:var(--chip);font-size:.88rem}
+ul{padding-left:20px;margin:6px 0}
+footer{margin-top:48px;color:var(--muted);font-size:.9rem}
+</style>
 </head>
 <body>
-  <header class="wrap hero">
-    <p class="eyebrow">Hi, I'm</p>
-    <h1>Salman Khan</h1>
-    <p class="lede">Software developer working mostly in C# and .NET — clean architecture, backend services and tools.</p>
-    <nav class="links">
-      <a href="https://github.com/SalmanslK">GitHub</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+<div class="wrap">
+<header>
+  <h1>Salman Khan</h1>
+  <p class="role">Lead Software Engineer</p>
+  <p class="lead">9+ years in .NET. I lead backend teams and own architecture, delivery and client UAT for enterprise platforms in agri-tech, warehouse/production and healthcare — and build governed, AI-assisted engineering workflows.</p>
+  <div class="links">
+    <a href="https://www.linkedin.com/in/salmankhan94">LinkedIn</a>
+    <a href="https://github.com/SalmanslK">GitHub</a>
+    <!-- Add when ready: <a href="mailto:you@example.com">Email</a> -->
+  </div>
+</header>
 
-  <main class="wrap">
-    <section id="skills">
-      <h2>Skills</h2>
-      <ul class="tags">
-        <li>C#</li><li>.NET</li><li>ASP.NET Core</li><li>Clean Architecture</li><li>SQL</li><li>Git</li>
-      </ul>
-    </section>
+<main>
+<section>
+  <h2>What I do</h2>
+  <div class="grid">
+    <div class="card"><h3>Platform architecture</h3><p>Clean Architecture, CQRS, multi-tenancy and reliable data design on .NET 10, EF Core, SQL Server and PostgreSQL.</p></div>
+    <div class="card"><h3>Enterprise integrations</h3><p>Dynamics 365 and AX, Epic FHIR/HL7, DICOM, Shopify, message queues and background workers.</p></div>
+    <div class="card"><h3>Quality at scale</h3><p>End-to-end business-flow suites, concurrency and architecture tests, CI checks and pipelines.</p></div>
+    <div class="card"><h3>AI-assisted engineering</h3><p>Claude Code workflows with guardrails, auditor agents and human approval gates.</p></div>
+  </div>
+</section>
 
-    <section id="projects">
-      <h2>Projects</h2>
-      <div class="grid" id="project-list"></div>
-    </section>
+<section>
+  <h2>Selected work</h2>
+  <div class="grid">
+    <div class="card"><h3>Agri-WMS Production &amp; Quality Platform</h3><p>Vann Bros (a US almond handler/huller client). Two live .NET 10 systems with two-way Dynamics 365 integration and extensive automated test coverage; first phase live.</p></div>
+    <div class="card"><h3>Nbryo IVF Platform</h3><p>Multi-tenant, multi-lab bovine IVF platform on .NET 10 and PostgreSQL — tenant isolation, lab-scoped permissions, embryo production and inventory.</p></div>
+    <div class="card"><h3>AgriBeef CattlePro ERP</h3><p>AgriBeef (a US Agri-Business Client). Blazor ERP suite: Harvest Schedule, Commodities, Lotting, Live Cattle, Hedging, reporting and a Shopify/3PL operations hub.</p></div>
+    <div class="card"><h3>"By the Book" AI Software Factory</h3><p>Multi-agent factory built for Folio3's AI Factory Championship: referee, auditor agents, fail-closed hooks and human gates.</p></div>
+    <div class="card"><h3>Epic / PACS Integration</h3><p>FHIR R4 and HL7 v2 integration between a DICOM PACS and Epic, with clinical-note write-back.</p></div>
+    <div class="card"><h3>Enterprise Reporting System</h3><p>Blazor Server portal centralising Crystal and SSRS reports with metadata-driven parameters and versioning.</p></div>
+  </div>
+</section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>The best way to reach me is through <a href="https://github.com/SalmanslK">GitHub</a>.</p>
-    </section>
-  </main>
+<section>
+  <h2>Experience</h2>
+  <div class="tl">
+    <div class="item"><strong>Lead Software Engineer</strong>, Folio3 <div class="when">Jan 2024 – Present</div>
+      <ul><li>Backend lead on Vann Bros and Nbryo platforms; module owner on AgriBeef CattlePro.</li><li>Built "By the Book" and delivered the internal Claude Code training.</li></ul></div>
+    <div class="item"><strong>Senior Software Engineer</strong>, Folio3 <div class="when">Feb 2022 – Jan 2024</div>
+      <ul><li>Led the Enterprise Reporting System; built the first CattlePro Blazor apps; JOOR connectors.</li></ul></div>
+    <div class="item"><strong>Software Engineer</strong>, Folio3 <div class="when">Mar 2020 – Jan 2022</div>
+      <ul><li>Animal traceability, SSRS/Crystal reporting, Cactus Feeders, EcoDocs for Superior Farms and Hanor Farms.</li></ul></div>
+    <div class="item"><strong>Earlier</strong> <div class="when">2017 – 2020</div>
+      <ul><li>TPL Trakker (Assistant Manager, Technology &amp; Innovation), Dig8Labs, OneMindSoft.</li></ul></div>
+  </div>
+</section>
 
-  <footer class="wrap">© <span id="year"></span> Salman Khan</footer>
+<section>
+  <h2>Skills</h2>
+  <div class="chips">
+    <span>C#</span><span>.NET 10 / 8</span><span>ASP.NET Core</span><span>Clean Architecture</span><span>CQRS</span><span>EF Core</span><span>SQL Server</span><span>PostgreSQL</span><span>Blazor</span><span>SignalR</span><span>Dynamics 365</span><span>FHIR / HL7</span><span>Docker</span><span>Azure DevOps</span><span>xUnit</span><span>Claude Code</span><span>Team leadership</span>
+  </div>
+</section>
 
-  <script src="projects.js"></script>
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    document.getElementById('project-list').innerHTML = PROJECTS.map(p => `
-      <article class="card">
-        <h3>${p.url ? `<a href="${p.url}">${p.name}</a>` : p.name}</h3>
-        <p>${p.description}</p>
-        <ul class="tags small">${p.tags.map(t => `<li>${t}</li>`).join('')}</ul>
-      </article>`).join('');
-  </script>
+<section>
+  <h2>Recognition</h2>
+  <ul>
+    <li>Divisional Stars Award, AgTech — Folio3, Q3 2026</li>
+    <li>Divisional Star, AgTech — Folio3, Q4 2022</li>
+    <li>Publication: <em>Microsoft Blazor: A Revolutionary Web Development Framework</em> (Folio3, 2023)</li>
+  </ul>
+</section>
+</main>
+
+<footer>© <span id="y">2026</span> Salman Khan · Karachi, Pakistan</footer>
+</div>
+<script>try{document.getElementById('y').textContent=new Date().getFullYear()}catch(e){}</script>
 </body>
 </html>
