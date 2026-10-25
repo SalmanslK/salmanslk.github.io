@@ -21,6 +21,8 @@ h2{font-size:1.25rem;margin:40px 0 12px;padding-bottom:6px;border-bottom:2px sol
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
 .card h3{margin:0 0 4px;font-size:1rem}
+.card h3 a{color:var(--accent);text-decoration:none}
+.card h3 a:hover,.card h3 a:focus-visible{text-decoration:underline}
 .card p{margin:0;color:var(--muted);font-size:.95rem}
 .tl{border-left:2px solid var(--line);margin-left:6px;padding-left:18px}
 .tl .item{margin-bottom:18px;position:relative}
@@ -64,6 +66,13 @@ footer{margin-top:48px;color:var(--muted);font-size:.9rem}
     <div class="card"><h3>"By the Book" AI Software Factory</h3><p>Multi-agent factory built for Folio3's AI Factory Championship: referee, auditor agents, fail-closed hooks and human gates.</p></div>
     <div class="card"><h3>Epic / PACS Integration</h3><p>FHIR R4 and HL7 v2 integration between a DICOM PACS and Epic, with clinical-note write-back.</p></div>
     <div class="card"><h3>Enterprise Reporting System</h3><p>Blazor Server portal centralising Crystal and SSRS reports with metadata-driven parameters and versioning.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>Open source</h2>
+  <div class="grid">
+    <div class="card"><h3><a href="https://github.com/SalmanslK/websocket-market-feed-client">WebSocket Market Feed Client</a></h3><p>.NET 10 library for serving live market data through your own API: subscribes on first request, merges price deltas into cached snapshots, reconnects on its own and drops unused subscriptions. Tested end to end against a real WebSocket server.</p></div>
   </div>
 </section>
 
