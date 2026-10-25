@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Salman Khan</title>
+  <meta name="description" content="Salman Khan — software developer. Projects, skills and contact.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23334155'/><text x='50' y='66' font-size='48' font-family='sans-serif' fill='white' text-anchor='middle'>SK</text></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="wrap hero">
+    <p class="eyebrow">Hi, I'm</p>
+    <h1>Salman Khan</h1>
+    <p class="lede">Software developer working mostly in C# and .NET — clean architecture, backend services and tools.</p>
+    <nav class="links">
+      <a href="https://github.com/SalmanslK">GitHub</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section id="skills">
+      <h2>Skills</h2>
+      <ul class="tags">
+        <li>C#</li><li>.NET</li><li>ASP.NET Core</li><li>Clean Architecture</li><li>SQL</li><li>Git</li>
+      </ul>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="grid" id="project-list"></div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>The best way to reach me is through <a href="https://github.com/SalmanslK">GitHub</a>.</p>
+    </section>
+  </main>
+
+  <footer class="wrap">© <span id="year"></span> Salman Khan</footer>
+
+  <script src="projects.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('project-list').innerHTML = PROJECTS.map(p => `
+      <article class="card">
+        <h3>${p.url ? `<a href="${p.url}">${p.name}</a>` : p.name}</h3>
+        <p>${p.description}</p>
+        <ul class="tags small">${p.tags.map(t => `<li>${t}</li>`).join('')}</ul>
+      </article>`).join('');
+  </script>
+</body>
+</html>
