@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Microsoft Blazor — Salman Khan</title>
+<meta name="description" content="What Blazor is, how its server and WebAssembly models compare, who should use it, and how to get started. By Salman Khan, first published on the Folio3 blog in May 2023.">
+<link rel="canonical" href="https://salmanslk.github.io/articles/microsoft-blazor/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Salman Khan">
+<meta property="og:title" content="Microsoft Blazor: A Revolutionary Web Development Framework">
+<meta property="og:description" content="What Blazor is, how its server and WebAssembly models compare, who should use it, and how to get started.">
+<meta property="og:url" content="https://salmanslk.github.io/articles/microsoft-blazor/">
+<meta property="og:image" content="https://salmanslk.github.io/assets/blazor-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+<meta property="article:author" content="Salman Khan">
+<meta property="article:published_time" content="2023-05-16">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a66c2'/%3E%3Ctext x='32' y='42' font-family='Segoe UI,Arial' font-size='28' font-weight='700' fill='white' text-anchor='middle'%3ESK%3C/text%3E%3C/svg%3E">
+<style>
+:root{--bg:#fff;--fg:#1a2330;--muted:#5a6876;--line:#e1e7ee;--accent:#0a66c2;--soft:#f3f6fa;--note:#fff8e6;--notel:#f0c36d;--pro:#1f8f5f;--con:#c2410c;--d1:#512bd4;--d2:#0a66c2}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1117;--fg:#e6edf3;--muted:#9aa7b4;--line:#273140;--accent:#6cb6ff;--soft:#161b22;--note:#2a2414;--notel:#8a6d2e;--pro:#4ade80;--con:#fb923c;--d1:#a78bfa;--d2:#6cb6ff}}
+:root[data-theme="dark"]{--bg:#0d1117;--fg:#e6edf3;--muted:#9aa7b4;--line:#273140;--accent:#6cb6ff;--soft:#161b22;--note:#2a2414;--notel:#8a6d2e;--pro:#4ade80;--con:#fb923c;--d1:#a78bfa;--d2:#6cb6ff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:18px/1.75 Georgia,"Iowan Old Style","Times New Roman",serif}
+.ui{font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif}
+a{color:var(--accent)}
+.top{border-bottom:1px solid var(--line)}
+.top .in{max-width:740px;margin:0 auto;padding:14px 16px;display:flex;justify-content:space-between;font-size:15px}
+.top a{text-decoration:none;font-weight:600}
+article{max-width:740px;margin:0 auto;padding:36px 16px 64px}
+.kicker{font-size:14px;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:.4px}
+h1{font-family:"Segoe UI",system-ui,Arial,sans-serif;font-size:2.4rem;line-height:1.15;margin:8px 0 14px}
+.by{display:flex;align-items:center;gap:12px;font-size:15px;color:var(--muted);margin-bottom:22px}
+.by img{width:44px;height:44px;border-radius:50%;object-fit:cover}
+.by b{color:var(--fg)}
+.hero{width:100%;height:auto;border-radius:12px;display:block;margin:0 0 26px}
+.note{background:var(--note);border-left:4px solid var(--notel);border-radius:8px;padding:12px 16px;font-size:15px;line-height:1.6;margin:0 0 28px}
+h2{font-family:"Segoe UI",system-ui,Arial,sans-serif;font-size:1.5rem;margin:40px 0 10px}
+h3{font-family:"Segoe UI",system-ui,Arial,sans-serif;font-size:1.15rem;margin:26px 0 8px}
+p{margin:0 0 16px}
+ul,ol{margin:0 0 18px;padding-left:24px}
+li{margin-bottom:6px}
+li strong{font-family:"Segoe UI",system-ui,Arial,sans-serif}
+.pc{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:4px 0 22px}
+.pc div{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:12px 16px;font-size:16px}
+.pc h4{font-family:"Segoe UI",system-ui,Arial,sans-serif;margin:0 0 6px;font-size:14px;text-transform:uppercase;letter-spacing:.4px}
+.pc .p h4{color:var(--pro)}.pc .c h4{color:var(--con)}
+.pc ul{margin:0;padding-left:18px}
+figure{margin:8px 0 26px}
+figure svg{width:100%;height:auto;display:block;background:var(--soft);border:1px solid var(--line);border-radius:12px}
+figcaption{font-size:14px;color:var(--muted);text-align:center;margin-top:8px}
+.steps{counter-reset:s;list-style:none;padding:0}
+.steps li{counter-increment:s;position:relative;padding-left:40px}
+.steps li::before{content:counter(s);position:absolute;left:0;top:2px;width:26px;height:26px;border-radius:50%;background:var(--accent);color:var(--bg);font:600 14px/26px "Segoe UI",Arial,sans-serif;text-align:center}
+.req{background:var(--soft);border-radius:10px;padding:12px 16px 4px;font-size:16px;margin-bottom:16px}
+.end{border-top:1px solid var(--line);margin-top:44px;padding-top:20px;font-size:15px;color:var(--muted)}
+svg text{font-family:"Segoe UI",Arial,sans-serif;fill:var(--fg)}
+@media (max-width:640px){body{font-size:17px}h1{font-size:1.85rem}.pc{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="top ui"><div class="in"><a href="../../">← Salman Khan</a><a href="https://www.linkedin.com/in/salmankhan94">LinkedIn</a></div></div>
+<article>
+<div class="kicker ui">Article · .NET</div>
+<h1>Microsoft Blazor: A Revolutionary Web Development Framework</h1>
+<div class="by ui"><img src="../../assets/photo.png" alt="" width="44" height="44"><div><b>Salman Khan</b><br>May 16, 2023 · First published on the Folio3 blog</div></div>
+<img class="hero" src="../../assets/blazor-card.png" alt="Microsoft Blazor: A Revolutionary Web Development Framework" width="1200" height="627">
+<p class="note ui"><strong>Note (2026):</strong> This article was written in 2023, for .NET 5–7. Since .NET 8, Blazor's two models live in one <em>Blazor Web App</em> template, and you pick a "render mode" per page or component. The ideas below still apply; the menus and version numbers in the getting-started steps are from that time.</p>
+
+<h2>Introduction</h2>
+<p>Web development has come a long way since the early days of the Internet. Today, developers have a wide range of tools and technologies at their disposal to build fast, responsive, and interactive web applications. One of the most exciting new web development frameworks to emerge in recent years is Microsoft Blazor.</p>
+<p>Blazor is a web development framework developed by Microsoft that allows developers to build interactive web applications using C# and .NET instead of JavaScript. It enables developers to use their existing .NET skills and codebase to build web applications. It began as an experimental project in 2018 and shipped as part of .NET Core 3.0 in September 2019. It can be used to build web applications that run on any modern web browser. It allows developers to write code that can run on both the server and the client side, making it a popular choice for building modern web applications that require high levels of interactivity.</p>
+<p>It uses a component-based architecture, where developers create components that represent specific parts of the user interface. These components can be reused throughout the application and can be composed to create complex user interfaces. Blazor components are written in C# and HTML, using Razor syntax, which is a combination of HTML and C#.</p>
+<p>It also supports two execution models: server-side and client-side. In the server-side model, the components run on the server, and the user interface is rendered in the browser using WebSockets to provide real-time interactivity. In the client-side model, the components are compiled into WebAssembly, which is a low-level bytecode format that can be executed in the browser.</p>
+<p>It is an open-source framework and part of the .NET ecosystem. It provides a rich set of built-in components, and it can be extended using third-party libraries and components. Blazor is gaining popularity among web developers who are looking for an alternative to traditional web development technologies.</p>
+
+<h2>Server-side model vs client-side model</h2>
+<p>Blazor supports two execution models: server-side and client-side.</p>
+<figure>
+<svg viewBox="0 0 700 300" role="img" aria-labelledby="dt">
+<title id="dt">Blazor Server runs components on the server and talks to the browser over a SignalR WebSocket connection; Blazor WebAssembly downloads the app and the .NET runtime and runs it in the browser, calling the server through web APIs.</title>
+<text x="175" y="30" text-anchor="middle" font-size="17" font-weight="700" style="fill:var(--d2)">Blazor Server</text>
+<rect x="40" y="50" width="270" height="70" rx="10" fill="none" stroke="var(--d2)" stroke-width="2"/>
+<text x="175" y="80" text-anchor="middle" font-size="15" font-weight="600">Browser</text>
+<text x="175" y="102" text-anchor="middle" font-size="13" style="fill:var(--muted)">renders the UI, sends clicks</text>
+<line x1="175" y1="122" x2="175" y2="178" stroke="var(--d2)" stroke-width="2" stroke-dasharray="5 4"/>
+<text x="185" y="155" font-size="13" style="fill:var(--muted)">SignalR / WebSocket</text>
+<rect x="40" y="180" width="270" height="80" rx="10" fill="var(--d2)" fill-opacity=".12" stroke="var(--d2)" stroke-width="2"/>
+<text x="175" y="212" text-anchor="middle" font-size="15" font-weight="600">Server</text>
+<text x="175" y="234" text-anchor="middle" font-size="13" style="fill:var(--muted)">runs your C# components</text>
+<text x="525" y="30" text-anchor="middle" font-size="17" font-weight="700" style="fill:var(--d1)">Blazor WebAssembly</text>
+<rect x="390" y="50" width="270" height="110" rx="10" fill="var(--d1)" fill-opacity=".12" stroke="var(--d1)" stroke-width="2"/>
+<text x="525" y="80" text-anchor="middle" font-size="15" font-weight="600">Browser</text>
+<text x="525" y="104" text-anchor="middle" font-size="13" style="fill:var(--muted)">runs your C# components</text>
+<text x="525" y="126" text-anchor="middle" font-size="13" style="fill:var(--muted)">on the .NET runtime (WebAssembly)</text>
+<line x1="525" y1="162" x2="525" y2="198" stroke="var(--d1)" stroke-width="2" stroke-dasharray="5 4"/>
+<text x="535" y="185" font-size="13" style="fill:var(--muted)">web API calls</text>
+<rect x="390" y="200" width="270" height="60" rx="10" fill="none" stroke="var(--d1)" stroke-width="2"/>
+<text x="525" y="236" text-anchor="middle" font-size="15" font-weight="600">Server (APIs, data)</text>
+</svg>
+<figcaption>Where your C# code runs in each model.</figcaption>
+</figure>
+
+<h3>Server-side model</h3>
+<p>In the server-side model, the components run on the server, and the user interface is rendered in the browser using WebSockets to provide real-time interactivity. When a user interacts with the web application, such as clicking a button, the interaction is sent to the server over a WebSocket connection, and the server responds with updates to the user interface. The server-side model is suitable for applications that require real-time interactivity, such as games or chat applications, and it is also helpful for applications that need to handle a large number of concurrent users.</p>
+<div class="pc ui">
+<div class="p"><h4>Pros</h4><ul><li>Initial page download can be significantly smaller</li><li>Processing can take advantage of installed server-side components</li><li>Visual Studio has full support for debugging with the server-side model</li></ul></div>
+<div class="c"><h4>Cons</h4><ul><li>No offline capability. When the internet is disconnected, processing stops.</li><li>Latency is increased</li></ul></div>
+</div>
+
+<h3>Client-side model</h3>
+<p>In the client-side model, the components are compiled into WebAssembly and executed in the browser. This allows the application to run entirely on the client side, without the need for a server-side component to handle user interactions. The initial download size of the application can be larger in the client-side model since it includes the compiled WebAssembly code, but once the application is downloaded, it can run very quickly, with minimal interaction with the server. The client-side model is suitable for applications that require a high degree of interactivity or that need to run offline.</p>
+<div class="pc ui">
+<div class="p"><h4>Pros</h4><ul><li>Client UI processing does not place a load on the server</li><li>The server does not have to manage WebSocket connections with many users, which can be difficult when there are many users</li></ul></div>
+<div class="c"><h4>Cons</h4><ul><li>.NET on WASM has not reached its full performance potential. This can sometimes create a sluggish UI, but AOT compilation promises to increase performance dramatically in the near future.</li><li>Interaction is restricted to the capabilities of the browser</li><li>The initial app download is slow because the .NET runtime must download</li><li>Debugging client-side Blazor apps is subject to some limitations and issues</li></ul></div>
+</div>
+<p>Overall, the choice between server-side and client-side models depends on the specific requirements of the application. The server-side model is better suited for applications that require real-time interactivity, while the client-side model is better suited for applications that require a high degree of interactivity or need to run offline.</p>
+
+<h2>How is it different from traditional web technologies?</h2>
+<p>Blazor provides an alternative approach to web development that allows developers to leverage their existing skills and knowledge to build modern web applications. It is different from traditional web technologies in several ways:</p>
+<ul>
+<li><strong>Language:</strong> Blazor allows developers to write code using C# and .NET instead of traditional web technologies such as JavaScript, HTML, and CSS. This means that developers who are familiar with C# and .NET can leverage their existing skills and knowledge to build web applications.</li>
+<li><strong>Code sharing:</strong> With Blazor, developers can write code that can run on both the server and the client side, allowing for code reuse and reducing the amount of code that needs to be written.</li>
+<li><strong>Component-based architecture:</strong> Blazor uses a component-based architecture, which allows developers to create reusable components that can be composed to create complex user interfaces.</li>
+<li><strong>Execution models:</strong> Blazor supports both server-side and client-side execution models. In the server-side model, the components run on the server, and the user interface is rendered in the browser using WebSockets to provide real-time interactivity. In the client-side model, the components are compiled into WebAssembly and executed in the browser.</li>
+<li><strong>Rich set of built-in components:</strong> Blazor provides a rich set of built-in components, including forms, validation, routing, and more, which can help developers build web applications more quickly.</li>
+</ul>
+
+<h2>Who should opt to use it?</h2>
+<p>Blazor can be a great option for developers who are looking for a modern approach to web development that allows them to leverage their existing skills and build interactive web applications more quickly. It can be a great option for a wide range of web developers, including:</p>
+<ul>
+<li><strong>C# and .NET developers:</strong> Blazor allows developers who are familiar with C# and .NET to leverage their existing skills to build web applications.</li>
+<li><strong>Developers who prefer type safety:</strong> Blazor provides type safety, which can help developers catch errors at compile-time instead of runtime, reducing the likelihood of bugs and improving code quality.</li>
+<li><strong>Developers who want to reuse code:</strong> Blazor allows developers to write code that can run on both the server and the client side, allowing for code reuse and reducing the amount of code that needs to be written.</li>
+<li><strong>Developers who want to build interactive web applications:</strong> Blazor provides a component-based architecture and a rich set of built-in components that can help developers build interactive web applications more quickly.</li>
+<li><strong>Developers who want to reduce the amount of JavaScript in their codebase:</strong> Blazor allows developers to write web applications using C# and .NET, reducing the amount of JavaScript that needs to be written and maintained.</li>
+</ul>
+
+<h2>Advantages of using Blazor</h2>
+<ul>
+<li><strong>Reuse of .NET and C# skills:</strong> The main advantage of using Blazor is that it allows developers to write their web application code entirely in C# and .NET, without having to learn JavaScript or other web technologies. This makes the development process faster and more efficient, as developers can focus on writing high-quality code instead of struggling with the complexities of web development.</li>
+<li><strong>Rich set of built-in components:</strong> Blazor also offers a rich set of built-in components that developers can use to build their web applications. These components include UI controls such as grids, charts, and data editors, as well as navigation and layout components. This saves developers time and effort, as they don't have to create these components from scratch.</li>
+<li><strong>Real-time communication:</strong> One of the most exciting features of Blazor is its ability to handle real-time communication and data updates. Blazor's server-side model uses SignalR to provide real-time updates to the client-side UI, allowing developers to build interactive and responsive web applications that can handle complex data scenarios.</li>
+<li><strong>Type safety:</strong> Blazor provides type safety, which can help catch errors at compile-time, reducing the likelihood of bugs and improving code quality.</li>
+<li><strong>Reduced reliance on JavaScript:</strong> Blazor reduces the need for JavaScript in web development, which can simplify development and maintenance.</li>
+</ul>
+
+<h2>How to get started?</h2>
+<h3>Server-side model</h3>
+<div class="req"><strong class="ui">Prerequisites</strong><ul><li>.NET Core SDK 3.1 or later</li><li>Visual Studio 2019 version 16.3 or later, or Visual Studio Code</li><li>A basic understanding of C# and .NET Core</li><li>A compatible web browser</li></ul></div>
+<ol class="steps">
+<li>Create a new Blazor Server project by opening Visual Studio and selecting "Create a new project" from the start window. Choose "Blazor App" from the list of project templates and select "Blazor Server App" as the project type.</li>
+<li>Choose a name and location for your project, and then click "Create" to create the project.</li>
+<li>Once the project is created, you can start exploring the code and making changes. The server-side Blazor project consists of a server-side component and a client-side component. The server-side component runs on the server and handles the communication with the client-side component.</li>
+<li>The client-side component is responsible for rendering the user interface and handling user interactions. The server-side component sends updates to the client-side component whenever the state of the application changes.</li>
+<li>You can use the C# programming language to write the logic for your Blazor Server application, and you can use the Razor syntax to create the user interface.</li>
+<li>Run the project and test it in your web browser to see how it works.</li>
+</ol>
+
+<h3>Client-side model</h3>
+<div class="req"><strong class="ui">Prerequisites</strong><ul><li>.NET SDK 5.0 or later</li><li>Visual Studio 2019 version 16.8 or later, or Visual Studio Code</li><li>A basic understanding of C# and .NET Core</li><li>A compatible web browser</li></ul></div>
+<ol class="steps">
+<li>Create a new Blazor WebAssembly project by opening Visual Studio and selecting "Create a new project" from the start window. Choose "Blazor App" from the list of project templates and select "Blazor WebAssembly App" as the project type.</li>
+<li>Choose a name and location for your project, and then click "Create" to create the project.</li>
+<li>Once the project is created, you can start exploring the code and making changes. The client-side Blazor project runs entirely in the browser and communicates with the server using web APIs.</li>
+<li>The client-side Blazor project uses the C# programming language to write the logic for your application, and you can use the Razor syntax to create the user interface.</li>
+<li>Run the project and test it in your web browser to see how it works.</li>
+</ol>
+
+<h2>Conclusion</h2>
+<p>Blazor is still a relatively new technology, but it has already gained a lot of popularity among developers. It offers a modern and efficient way to build web applications using a familiar and powerful development platform. If you're a .NET developer looking to build web applications, Blazor is definitely a technology worth considering.</p>
+
+<div class="end ui">Originally published on the Folio3 blog on May 16, 2023. Lightly edited in 2026: formatting restored, version numbers and Blazor's release date corrected, and a diagram added. — <a href="../../">Salman Khan</a></div>
+</article>
+</body>
+</html>

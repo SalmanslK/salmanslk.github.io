@@ -4,94 +4,166 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Salman Khan — Lead Software Engineer</title>
-<meta name="description" content="Salman Khan, Lead Software Engineer (.NET, Clean Architecture, enterprise integrations, AI-assisted engineering). Karachi, Pakistan.">
+<meta name="description" content="Salman Khan, Lead Software Engineer at Folio3. .NET 10, Clean Architecture and enterprise integrations (Dynamics 365, Epic FHIR/HL7) for agri-tech and healthcare platforms. Karachi, Pakistan.">
+<link rel="canonical" href="https://salmanslk.github.io/">
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="Salman Khan">
+<meta property="og:title" content="Salman Khan — Lead Software Engineer">
+<meta property="og:description" content=".NET 10 · Clean Architecture · Enterprise Integrations (Dynamics 365, Epic FHIR/HL7) · Multi-tenant platforms for agri-tech and healthcare.">
+<meta property="og:url" content="https://salmanslk.github.io/">
+<meta property="og:image" content="https://salmanslk.github.io/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a66c2'/%3E%3Ctext x='32' y='42' font-family='Segoe UI,Arial' font-size='28' font-weight='700' fill='white' text-anchor='middle'%3ESK%3C/text%3E%3C/svg%3E">
 <style>
-:root{--bg:#fafbfc;--fg:#1b1f24;--muted:#57606a;--card:#fff;--line:#d8dee4;--accent:#1f4e79;--chip:#eaf1f8}
-@media (prefers-color-scheme:dark){:root{--bg:#0f1318;--fg:#e6edf3;--muted:#9aa7b4;--card:#171c23;--line:#2b333d;--accent:#6aa9e0;--chip:#1c2733}}
+:root{--bg:#f6f8fb;--fg:#15202b;--muted:#5a6876;--card:#fff;--line:#e1e7ee;--accent:#0a66c2;--chip:#e8f1fb;--hero1:#0b1f3a;--hero2:#0a66c2;--navbg:rgba(246,248,251,.9);--shadow:0 1px 2px rgba(16,24,40,.05),0 4px 14px rgba(16,24,40,.06)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1117;--fg:#e6edf3;--muted:#9aa7b4;--card:#161b22;--line:#273140;--accent:#6cb6ff;--chip:#1b2a3c;--hero1:#0b1f3a;--hero2:#123a6b;--navbg:rgba(13,17,23,.9);--shadow:none}}
+:root[data-theme="dark"]{--bg:#0d1117;--fg:#e6edf3;--muted:#9aa7b4;--card:#161b22;--line:#273140;--accent:#6cb6ff;--chip:#1b2a3c;--hero1:#0b1f3a;--hero2:#123a6b;--navbg:rgba(13,17,23,.9);--shadow:none}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
-.wrap{max-width:860px;margin:0 auto;padding:0 16px 64px}
-header{padding:56px 0 24px}
-h1{font-size:2.2rem;line-height:1.15;margin:0 0 6px}
-.role{font-size:1.15rem;color:var(--accent);font-weight:600;margin:0 0 10px}
-.lead{color:var(--muted);margin:0 0 18px;max-width:62ch}
-.links a{display:inline-block;margin:0 8px 8px 0;padding:8px 14px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg);text-decoration:none;font-weight:600}
-.links a:hover,.links a:focus-visible{border-color:var(--accent);color:var(--accent)}
-h2{font-size:1.25rem;margin:40px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--accent)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
-.card h3{margin:0 0 4px;font-size:1rem}
-.card h3 a{color:var(--accent);text-decoration:none}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 "Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif}
+a{color:var(--accent)}
+.wrap{max-width:980px;margin:0 auto;padding:0 16px}
+nav{position:sticky;top:0;z-index:5;background:var(--navbg);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;gap:18px;height:56px}
+nav .brand{font-weight:700;color:var(--fg);text-decoration:none;margin-right:auto}
+nav a.l{color:var(--muted);text-decoration:none;font-size:.93rem}
+nav a.l:hover,nav a.l:focus-visible{color:var(--accent)}
+.hero{background:linear-gradient(135deg,var(--hero1) 0%,var(--hero2) 100%);color:#fff}
+.hero .wrap{display:flex;align-items:center;gap:44px;padding-top:56px;padding-bottom:56px}
+.hero img{width:200px;height:200px;border-radius:50%;object-fit:cover;border:5px solid rgba(255,255,255,.85);flex:none;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.hero h1{font-size:2.6rem;line-height:1.1;margin:0 0 6px}
+.hero .role{font-size:1.2rem;color:#cfe3ff;margin:0 0 14px;font-weight:600}
+.hero .pitch{margin:0 0 20px;max-width:58ch;color:#e8f0fa}
+.btns a{display:inline-block;margin:0 8px 8px 0;padding:9px 18px;border-radius:999px;text-decoration:none;font-weight:600;font-size:.95rem}
+.btn-p{background:#fff;color:#0b3d6e}
+.btn-s{border:1.5px solid rgba(255,255,255,.7);color:#fff}
+.stats{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:18px;font-size:.92rem;color:#cfe3ff}
+.stats b{color:#fff;font-size:1.15rem;margin-right:4px}
+section{padding:44px 0 4px}
+h2{font-size:1.45rem;margin:0 0 6px}
+.sub{color:var(--muted);margin:0 0 20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(340px,1fr))}
+@media (max-width:720px){.g2{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow)}
+.card h3{margin:0 0 6px;font-size:1.03rem}
+.card h3 a{text-decoration:none}
 .card h3 a:hover,.card h3 a:focus-visible{text-decoration:underline}
 .card p{margin:0;color:var(--muted);font-size:.95rem}
-.tl{border-left:2px solid var(--line);margin-left:6px;padding-left:18px}
-.tl .item{margin-bottom:18px;position:relative}
-.tl .item::before{content:"";position:absolute;left:-25px;top:8px;width:10px;height:10px;border-radius:50%;background:var(--accent)}
-.when{color:var(--muted);font-size:.9rem}
-.chips span{display:inline-block;margin:0 6px 6px 0;padding:3px 10px;border-radius:999px;background:var(--chip);font-size:.88rem}
-ul{padding-left:20px;margin:6px 0}
-footer{margin-top:48px;color:var(--muted);font-size:.9rem}
+.tag{display:inline-block;font-size:.75rem;font-weight:600;letter-spacing:.3px;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+.ic{width:38px;height:38px;border-radius:10px;background:var(--chip);color:var(--accent);display:flex;align-items:center;justify-content:center;font-weight:700;margin-bottom:10px}
+.feature{display:grid;grid-template-columns:minmax(0,300px) 1fr;gap:22px;align-items:center;text-decoration:none;color:inherit}
+.feature img{width:100%;height:auto;border-radius:10px;display:block}
+.feature h3{color:var(--accent)}
+.feature:hover h3,.feature:focus-visible h3{text-decoration:underline}
+.tl{border-left:2px solid var(--line);margin-left:8px;padding-left:24px}
+.tl .item{margin-bottom:22px;position:relative}
+.tl .item::before{content:"";position:absolute;left:-33px;top:6px;width:16px;height:16px;border-radius:50%;background:var(--card);border:3px solid var(--accent)}
+.tl strong{font-size:1.02rem}
+.when{color:var(--muted);font-size:.88rem}
+.tl ul{padding-left:18px;margin:6px 0 0;color:var(--muted)}
+.chips span{display:inline-block;margin:0 8px 8px 0;padding:5px 12px;border-radius:999px;background:var(--chip);font-size:.9rem}
+.awards{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.star{display:inline-flex;width:26px;height:26px;border-radius:50%;background:var(--chip);color:var(--accent);align-items:center;justify-content:center;margin-right:10px;font-size:14px}
+.awards li{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px;box-shadow:var(--shadow)}
+footer{margin:56px 0 0;padding:24px 0 40px;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
+@media (max-width:720px){
+  .hero .wrap{flex-direction:column;text-align:center;gap:22px;padding-top:36px;padding-bottom:40px}
+  .hero img{width:150px;height:150px}
+  .hero h1{font-size:2.1rem}
+  .stats{justify-content:center}
+  .feature{grid-template-columns:1fr}
+  nav .wrap{gap:14px}
+  nav a.l.opt{display:none}
+}
 </style>
 </head>
 <body>
-<div class="wrap">
-<header>
-  <h1>Salman Khan</h1>
-  <p class="role">Lead Software Engineer</p>
-  <p class="lead">9+ years in .NET. I lead backend teams and own architecture, delivery and client UAT for enterprise platforms in agri-tech, warehouse/production and healthcare — and build governed, AI-assisted engineering workflows.</p>
-  <div class="links">
-    <a href="https://www.linkedin.com/in/salmankhan94">LinkedIn</a>
-    <a href="https://github.com/SalmanslK">GitHub</a>
-    <!-- Add when ready: <a href="mailto:you@example.com">Email</a> -->
-  </div>
-</header>
+<nav><div class="wrap">
+  <a class="brand" href="#top">Salman Khan</a>
+  <a class="l" href="#work">Work</a>
+  <a class="l opt" href="#writing">Writing</a>
+  <a class="l" href="#experience">Experience</a>
+  <a class="l opt" href="#skills">Skills</a>
+</div></nav>
 
-<main>
+<header class="hero" id="top"><div class="wrap">
+  <img src="assets/photo.png" alt="Salman Khan" width="200" height="200">
+  <div>
+    <h1>Salman Khan</h1>
+    <p class="role">Lead Software Engineer @ Folio3</p>
+    <p class="pitch">I build and lead the backend for .NET platforms that run real operations — production floors, warehouses, IVF labs and hospital systems — and connect them to the enterprise tools they depend on, like Dynamics 365 and Epic.</p>
+    <div class="btns">
+      <a class="btn-p" href="https://www.linkedin.com/in/salmankhan94">LinkedIn</a>
+      <a class="btn-s" href="https://github.com/SalmanslK">GitHub</a>
+    </div>
+    <div class="stats"><span><b>9+</b>years in .NET</span><span><b>2×</b>Divisional Star, Folio3</span><span><b>.NET 10</b>Clean Architecture</span></div>
+  </div>
+</div></header>
+
+<main class="wrap">
 <section>
   <h2>What I do</h2>
-  <div class="grid">
-    <div class="card"><h3>Platform architecture</h3><p>Clean Architecture, CQRS, multi-tenancy and reliable data design on .NET 10, EF Core, SQL Server and PostgreSQL.</p></div>
-    <div class="card"><h3>Enterprise integrations</h3><p>Dynamics 365 and AX, Epic FHIR/HL7, DICOM, Shopify, message queues and background workers.</p></div>
-    <div class="card"><h3>Quality at scale</h3><p>End-to-end business-flow suites, concurrency and architecture tests, CI checks and pipelines.</p></div>
-    <div class="card"><h3>AI-assisted engineering</h3><p>Claude Code workflows with guardrails, auditor agents and human approval gates.</p></div>
+  <p class="sub">The work I'm trusted with, end to end.</p>
+  <div class="grid g2">
+    <div class="card"><div class="ic">◆</div><h3>Platform architecture</h3><p>Clean Architecture, CQRS, multi-tenancy and reliable data design on .NET 10, EF Core, SQL Server and PostgreSQL.</p></div>
+    <div class="card"><div class="ic">⇄</div><h3>Enterprise integrations</h3><p>Dynamics 365 and AX, Epic FHIR/HL7, DICOM, Shopify, message queues and background workers.</p></div>
+    <div class="card"><div class="ic">✓</div><h3>Quality at scale</h3><p>End-to-end business-flow suites, concurrency and architecture tests, CI checks and pipelines.</p></div>
+    <div class="card"><div class="ic">✦</div><h3>AI-assisted engineering</h3><p>Claude Code workflows with guardrails, auditor agents and human approval gates.</p></div>
   </div>
 </section>
 
-<section>
+<section id="work">
   <h2>Selected work</h2>
+  <p class="sub">Client platforms I've led or owned at Folio3.</p>
   <div class="grid">
-    <div class="card"><h3>Agri-WMS Production &amp; Quality Platform</h3><p>Vann Bros (a US almond handler/huller client). Two live .NET 10 systems with two-way Dynamics 365 integration and extensive automated test coverage; first phase live.</p></div>
-    <div class="card"><h3>Nbryo IVF Platform</h3><p>Multi-tenant, multi-lab bovine IVF platform on .NET 10 and PostgreSQL — tenant isolation, lab-scoped permissions, embryo production and inventory.</p></div>
-    <div class="card"><h3>AgriBeef CattlePro ERP</h3><p>AgriBeef (a US Agri-Business Client). Blazor ERP suite: Harvest Schedule, Commodities, Lotting, Live Cattle, Hedging, reporting and a Shopify/3PL operations hub.</p></div>
-    <div class="card"><h3>"By the Book" AI Software Factory</h3><p>Multi-agent factory built for Folio3's AI Factory Championship: referee, auditor agents, fail-closed hooks and human gates.</p></div>
-    <div class="card"><h3>Epic / PACS Integration</h3><p>FHIR R4 and HL7 v2 integration between a DICOM PACS and Epic, with clinical-note write-back.</p></div>
-    <div class="card"><h3>Enterprise Reporting System</h3><p>Blazor Server portal centralising Crystal and SSRS reports with metadata-driven parameters and versioning.</p></div>
+    <div class="card"><span class="tag">Agri-tech</span><h3>Agri-WMS Production &amp; Quality Platform</h3><p>Vann Bros (a US almond handler/huller client). Two live .NET 10 systems with two-way Dynamics 365 integration and extensive automated test coverage; first phase live.</p></div>
+    <div class="card"><span class="tag">Life sciences</span><h3>Nbryo IVF Platform</h3><p>Multi-tenant, multi-lab bovine IVF platform on .NET 10 and PostgreSQL — tenant isolation, lab-scoped permissions, embryo production and inventory.</p></div>
+    <div class="card"><span class="tag">Agri-tech</span><h3>AgriBeef CattlePro ERP</h3><p>AgriBeef (a US agri-business client). Blazor ERP suite: Harvest Schedule, Commodities, Lotting, Live Cattle, Hedging, reporting and a Shopify/3PL operations hub.</p></div>
+    <div class="card"><span class="tag">Healthcare</span><h3>Epic / PACS Integration</h3><p>FHIR R4 and HL7 v2 integration between a DICOM PACS and Epic, with clinical-note write-back.</p></div>
+    <div class="card"><span class="tag">AI engineering</span><h3>"By the Book" AI Software Factory</h3><p>Multi-agent factory built for Folio3's AI Factory Championship: referee, auditor agents, fail-closed hooks and human gates.</p></div>
+    <div class="card"><span class="tag">Reporting</span><h3>Enterprise Reporting System</h3><p>Blazor Server portal centralising Crystal and SSRS reports with metadata-driven parameters and versioning.</p></div>
   </div>
+</section>
+
+<section id="writing">
+  <h2>Writing</h2>
+  <p class="sub">First published on the Folio3 blog.</p>
+  <a class="card feature" href="articles/microsoft-blazor/">
+    <img src="assets/blazor-card.png" alt="" width="1200" height="627" loading="lazy">
+    <div><span class="tag">Article · May 2023</span><h3>Microsoft Blazor: A Revolutionary Web Development Framework</h3><p>What Blazor is, how its server and WebAssembly models compare, who should use it, and a step-by-step guide to getting started.</p></div>
+  </a>
 </section>
 
 <section>
   <h2>Open source</h2>
+  <p class="sub">Small, focused libraries on my GitHub.</p>
   <div class="grid">
-    <div class="card"><h3><a href="https://github.com/SalmanslK/websocket-market-feed-client">WebSocket Market Feed Client</a></h3><p>.NET 10 library for serving live market data through your own API: subscribes on first request, merges price deltas into cached snapshots, reconnects on its own and drops unused subscriptions. Tested end to end against a real WebSocket server.</p></div>
+    <div class="card"><span class="tag">.NET 10 · MIT</span><h3><a href="https://github.com/SalmanslK/websocket-market-feed-client">WebSocket Market Feed Client</a></h3><p>Serve live market data through your own API: subscribes on first request, merges price deltas into cached snapshots, reconnects on its own and drops unused subscriptions. Tested end to end against a real WebSocket server.</p></div>
   </div>
 </section>
 
-<section>
+<section id="experience">
   <h2>Experience</h2>
+  <p class="sub">At Folio3 since 2020, growing from engineer to lead.</p>
   <div class="tl">
-    <div class="item"><strong>Lead Software Engineer</strong>, Folio3 <div class="when">Jan 2024 – Present</div>
+    <div class="item"><strong>Lead Software Engineer</strong> · Folio3 <div class="when">Jan 2024 – Present</div>
       <ul><li>Backend lead on Vann Bros and Nbryo platforms; module owner on AgriBeef CattlePro.</li><li>Built "By the Book" and delivered the internal Claude Code training.</li></ul></div>
-    <div class="item"><strong>Senior Software Engineer</strong>, Folio3 <div class="when">Feb 2022 – Jan 2024</div>
+    <div class="item"><strong>Senior Software Engineer</strong> · Folio3 <div class="when">Feb 2022 – Jan 2024</div>
       <ul><li>Led the Enterprise Reporting System; built the first CattlePro Blazor apps; JOOR connectors.</li></ul></div>
-    <div class="item"><strong>Software Engineer</strong>, Folio3 <div class="when">Mar 2020 – Jan 2022</div>
+    <div class="item"><strong>Software Engineer</strong> · Folio3 <div class="when">Mar 2020 – Jan 2022</div>
       <ul><li>Animal traceability, SSRS/Crystal reporting, Cactus Feeders, EcoDocs for Superior Farms and Hanor Farms.</li></ul></div>
     <div class="item"><strong>Earlier</strong> <div class="when">2017 – 2020</div>
       <ul><li>TPL Trakker (Assistant Manager, Technology &amp; Innovation), Dig8Labs, OneMindSoft.</li></ul></div>
   </div>
 </section>
 
-<section>
+<section id="skills">
   <h2>Skills</h2>
+  <p class="sub">What I use day to day.</p>
   <div class="chips">
     <span>C#</span><span>.NET 10 / 8</span><span>ASP.NET Core</span><span>Clean Architecture</span><span>CQRS</span><span>EF Core</span><span>SQL Server</span><span>PostgreSQL</span><span>Blazor</span><span>SignalR</span><span>Dynamics 365</span><span>FHIR / HL7</span><span>Docker</span><span>Azure DevOps</span><span>xUnit</span><span>Claude Code</span><span>Team leadership</span>
   </div>
@@ -99,16 +171,14 @@ footer{margin-top:48px;color:var(--muted);font-size:.9rem}
 
 <section>
   <h2>Recognition</h2>
-  <ul>
-    <li>Divisional Stars Award, AgTech — Folio3, Q3 2026</li>
-    <li>Divisional Star, AgTech — Folio3, Q4 2022</li>
-    <li>Publication: <em>Microsoft Blazor: A Revolutionary Web Development Framework</em> (Folio3, 2023)</li>
+  <ul class="awards">
+    <li><span class="star">★</span><strong>Divisional Stars Award</strong>, AgTech — Folio3, Q3 2026</li>
+    <li><span class="star">★</span><strong>Divisional Star</strong>, AgTech — Folio3, Q4 2022</li>
   </ul>
 </section>
 </main>
 
-<footer>© <span id="y">2026</span> Salman Khan · Karachi, Pakistan</footer>
-</div>
+<footer><div class="wrap"><span>© <span id="y">2026</span> Salman Khan · Karachi, Pakistan</span><span><a href="https://www.linkedin.com/in/salmankhan94">LinkedIn</a> · <a href="https://github.com/SalmanslK">GitHub</a></span></div></footer>
 <script>try{document.getElementById('y').textContent=new Date().getFullYear()}catch(e){}</script>
 </body>
 </html>
