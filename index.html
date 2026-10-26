@@ -99,6 +99,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-betw
     <div class="btns">
       <a class="btn-p" href="https://www.linkedin.com/in/salmankhan94">LinkedIn</a>
       <a class="btn-s" href="https://github.com/SalmanslK">GitHub</a>
+      <a class="btn-s js-mail" href="#contact">Email</a>
     </div>
     <div class="stats"><span><b>9+</b>years in .NET</span><span><b>2×</b>Divisional Star, Folio3</span><span><b>.NET 10</b>Clean Architecture</span></div>
   </div>
@@ -180,7 +181,9 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-betw
 </section>
 </main>
 
-<footer><div class="wrap"><span>© <span id="y">2026</span> Salman Khan · Karachi, Pakistan</span><span><a href="https://www.linkedin.com/in/salmankhan94">LinkedIn</a> · <a href="https://github.com/SalmanslK">GitHub</a></span></div></footer>
-<script>try{document.getElementById('y').textContent=new Date().getFullYear()}catch(e){}</script>
+<footer><div class="wrap"><span>© <span id="y">2026</span> Salman Khan · Karachi, Pakistan</span><span><a href="https://www.linkedin.com/in/salmankhan94">LinkedIn</a> · <a href="https://github.com/SalmanslK">GitHub</a> · <a class="js-mail" href="#contact">Email</a></span></div></footer>
+<script>try{document.getElementById('y').textContent=new Date().getFullYear()}catch(e){}
+// Address is assembled on click so it never appears in the page source for scrapers.
+document.querySelectorAll('.js-mail').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var u=['salman','khan','1'].join('_'),d=['hotmail','com'].join('.');window.location.href='mailto:'+u+'@'+d;});});</script>
 </body>
 </html>
